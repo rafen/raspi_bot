@@ -4,6 +4,10 @@ Simple raspberry bot for learning use
 ## Installation
 
 ```
+sudo apt-get install build-essential libssl-dev libffi-dev python-dev
+```
+
+```
 git clone https://github.com/rafen/raspi_bot.git
 ```
 
@@ -55,4 +59,12 @@ Reload supervisor
 ```
 supervisorctl reread
 supervisorctl update
+```
+
+you are done!
+
+## Restart/reload the raspi_bot service
+
+```
+sudo supervisorctl restart raspi_bot
 ```
