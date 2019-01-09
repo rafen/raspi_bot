@@ -49,3 +49,10 @@ redirect_stderr=true
 stopsignal=QUIT
 stdout_logfile=/home/pi/raspi_bot/raspi_bot.log
 ```
+
+Reload supervisor
+
+```
+supervisorctl reread
+supervisorctl update
+```
