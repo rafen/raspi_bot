@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from decorators import private
+from decorators import private, time_sensitive
 
 
 def start(bot, update):
@@ -31,6 +31,7 @@ def thanks(bot, update):
 
 
 @private
+@time_sensitive
 def time(bot, update):
     bot.send_message(
         chat_id=update.message.chat_id,
