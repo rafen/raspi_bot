@@ -5,7 +5,7 @@ from decorators import private, time_sensitive
 
 GPIO.setmode(GPIO.BCM)
 # light output pin
-light_pin = 16
+light_pin = 17
 GPIO.setup(light_pin, GPIO.OUT)
 GPIO.output(light_pin, GPIO.LOW)
 
