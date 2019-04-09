@@ -7,7 +7,7 @@ GPIO.setmode(GPIO.BOARD)
 # light output pin
 light_pin = 36
 GPIO.setup(light_pin, GPIO.OUT)
-
+GPIO.output(light_pin, GPIO.LOW)
 
 def start(bot, update):
     bot.send_message(
@@ -48,7 +48,7 @@ def time(bot, update):
 @private
 @time_sensitive
 def light_on(bot, update):
-    GPIO.output(light_pin, 1)
+    GPIO.output(light_pin, GPIO.HIGH)
     bot.send_message(
         chat_id=update.message.chat_id,
         text="light is on now"
@@ -58,7 +58,7 @@ def light_on(bot, update):
 @private
 @time_sensitive
 def light_off(bot, update):
-    GPIO.output(light_pin, 0)
+    GPIO.output(light_pin, GPIO.LOW)
     bot.send_message(
         chat_id=update.message.chat_id,
         text="light is off"
