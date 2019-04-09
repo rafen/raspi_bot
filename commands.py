@@ -3,11 +3,12 @@ from datetime import datetime
 import RPi.GPIO as GPIO
 from decorators import private, time_sensitive
 
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BMC)
 # light output pin
-light_pin = 36
+light_pin = 16
 GPIO.setup(light_pin, GPIO.OUT)
 GPIO.output(light_pin, GPIO.LOW)
+
 
 def start(bot, update):
     bot.send_message(
