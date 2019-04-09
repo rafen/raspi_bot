@@ -1,6 +1,12 @@
 from datetime import datetime
 
+import RPi.GPIO as GPIO
 from decorators import private, time_sensitive
+
+GPIO.setmode(GPIO.BOARD)
+# light output pin
+light_pin = 16
+GPIO.setup(light_pin, GPIO.OUT)
 
 
 def start(bot, update):
@@ -39,6 +45,26 @@ def time(bot, update):
     )
 
 
+@private
+@time_sensitive
+def light_on(bot, update):
+    GPIO.output(light_pin, 1)
+    bot.send_message(
+        chat_id=update.message.chat_id,
+        text="light is on now"
+    )
+
+
+@private
+@time_sensitive
+def light_off(bot, update):
+    GPIO.output(light_pin, 0)
+    bot.send_message(
+        chat_id=update.message.chat_id,
+        text="light is off"
+    )
+
+
 command_list = [
     # list of command to expose
     # name, function
@@ -46,4 +72,6 @@ command_list = [
     ('hi', hi),
     ('thanks', thanks),
     ('time', time),
+    ('on', light_on),
+    ('off', light_off),
 ]
